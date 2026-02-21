@@ -2,7 +2,21 @@
 import { createContext, useEffect } from "react";
 import Lenis from "lenis";
 
-const LenisContext = createContext<typeof Lenis | null>(null);
+// Ручная типизация для Lenis (библиотека не имеет типов)
+interface LenisOptions {
+    duration?: number;
+    easing?: (t: number) => number;
+    smoothWheel?: boolean;
+    smoothTouch?: boolean;
+    infinite?: boolean;
+}
+
+interface LenisInstance {
+    raf(time: number): void;
+    destroy(): void;
+}
+
+const LenisContext = createContext<LenisInstance | null>(null);
 
 export function LenisProvider({
     children,
@@ -12,10 +26,10 @@ export function LenisProvider({
     }
 }: {
     children: React.ReactNode;
-    options?: any;
+    options?: Partial<LenisOptions>;
 }) {
     useEffect(() => {
-        const lenis = new Lenis(options);
+        const lenis = new Lenis(options) as LenisInstance;
 
         const raf = (time: number) => {
             lenis.raf(time);
