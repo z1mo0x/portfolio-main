@@ -2,9 +2,7 @@ import Title from '@/components/common/title'
 import React from 'react'
 import { ProjectItem } from './project-item'
 
-type Props = {}
-
-export default function ProjectsBlock({ }: Props) {
+export default function ProjectsBlock() {
     return (
         <div className="pt-25">
             <div className="container">

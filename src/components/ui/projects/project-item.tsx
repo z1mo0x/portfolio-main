@@ -5,9 +5,8 @@ import Image from 'next/image'
 import { DiCss3Full, DiHtml5, DiJavascript1 } from 'react-icons/di'
 import { motion } from 'framer-motion'
 import Button from '../button'
-type Props = {}
 
-export const ProjectItem = ({ }: Props) => {
+export const ProjectItem = () => {
     return (
         <motion.div
             initial={{ opacity: 0 }}

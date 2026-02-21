@@ -2,7 +2,7 @@
 import { createContext, useEffect } from "react";
 import Lenis from "lenis";
 
-const LenisContext = createContext<any>(null);
+const LenisContext = createContext<typeof Lenis | null>(null);
 
 export function LenisProvider({
     children,
