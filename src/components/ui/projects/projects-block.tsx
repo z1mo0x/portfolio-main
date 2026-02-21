@@ -1,0 +1,19 @@
+import Title from '@/components/common/title'
+import React from 'react'
+import { ProjectItem } from './project-item'
+
+type Props = {}
+
+export default function ProjectsBlock({ }: Props) {
+    return (
+        <div className="pt-25">
+            <div className="container">
+                <Title>Мои работы</Title>
+            </div>
+            <div className='grid gap-5 mt-15'>
+                <ProjectItem />
+                <ProjectItem />
+            </div>
+        </div>
+    )
+}
