@@ -2,7 +2,7 @@
 
 import React, { memo } from 'react'
 import ElectricBorder from "@/components/ElectricBorder"
-import { motion, useMotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 type Props = {
     icon: any,
