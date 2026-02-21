@@ -4,7 +4,7 @@ import { ProjectItem } from './project-item'
 
 export default function ProjectsBlock() {
     return (
-        <div className="pt-25">
+        <div className="pt-30">
             <div className="container">
                 <Title>Мои работы</Title>
             </div>

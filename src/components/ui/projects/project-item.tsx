@@ -9,9 +9,9 @@ import Button from '../button'
 export const ProjectItem = () => {
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileHover={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 1 }}
             transition={{ duration: .3 }}
             className='grid grid-cols-3 border-y-2 border-white p-5'>

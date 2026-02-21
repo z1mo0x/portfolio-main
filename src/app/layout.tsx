@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bungee, Geist_Mono } from "next/font/google";
+import { Bungee, Rubik } from "next/font/google";
 import "./globals.scss";
 import { LenisProvider } from "@/providers/lenis-provider";
 
@@ -9,9 +9,9 @@ const bungee = Bungee({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const mainFont = Rubik({
+  variable: "--font-main",
+  subsets: ["cyrillic"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${bungee.variable} ${geistMono.variable} antialiased`}
+        className={`${bungee.variable} ${mainFont.variable} antialiased`}
       >
         <LenisProvider>
           {children}

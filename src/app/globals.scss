@@ -45,10 +45,6 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-.bungee {
-  font-family: var(--font-bungee);
-}
-
 :root {
   --radius: 0.625rem;
   --background: oklch(0.98 0.001 48);
@@ -129,8 +125,16 @@
 }
 
 body {
-  padding-bottom: 300px;
+  // padding-bottom: 300px;
+  font-family: var(--font-main);
+  ;
 }
+
+
+.bungee {
+  font-family: var(--font-bungee);
+}
+
 
 .btn {
   font-weight: 500;

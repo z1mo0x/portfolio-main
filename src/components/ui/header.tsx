@@ -16,7 +16,7 @@ export default memo(function Header() {
             transition={{ duration: 1, ease: 'easeIn' }}
             className="header fixed h-[100px] px-5 pt-5 z-10 w-full">
             <div
-                className="header__wrapper  backdrop-blur-xs flex h-full gap-5 justify-between items-center 
+                className="header__wrapper bg-[rgba(255,255,255,.025)] backdrop-blur-xs flex h-full gap-5 justify-between items-center 
                  rounded-4xl px-5 py-2.5"
             >
                 <Link href={'/'} className="bungee text-blue-500 text-3xl">

@@ -6,6 +6,7 @@ import { BiLogoTypescript } from "react-icons/bi"
 import { DiGit, DiHtml5, DiJavascript1, DiReact } from "react-icons/di"
 import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import Silk from '@/components/Silk'
+import GradualBlur from '@/components/GradualBlur'
 
 const stackItems = 'flex gap-2 items-center'
 const containerVariants = {
@@ -44,7 +45,7 @@ export default memo(function Hero() {
                         whileInView={{ x: 0, y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ type: 'spring', delay: .5, y: { delay: 1, duration: .3 }, opacity: { duration: .5 } }}
-                        className="bungee text-8xl text-right">{'<Frontend'}</motion.div>
+                        className="bungee text-7xl text-right">{'<Frontend'}</motion.div>
                     <motion.div
                         className={stackItems}
                         variants={containerVariants}
@@ -99,8 +100,11 @@ export default memo(function Hero() {
                         whileInView={{ x: 0, y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ type: 'spring', delay: .5, y: { delay: 1, duration: .3 }, opacity: { duration: .5 } }}
-                        className="bungee text-8xl">{'Developer/>'}</motion.div>
+                        className="bungee text-7xl">{'Developer/>'}</motion.div>
                 </div >
+            </div>
+            <div className="absolute -bottom-[50px] w-full z-1">
+                <GradualBlur strength={1} />
             </div>
         </div >
     )
