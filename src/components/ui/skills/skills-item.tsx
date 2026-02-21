@@ -5,10 +5,10 @@ import ElectricBorder from "@/components/ElectricBorder"
 import { motion } from 'framer-motion'
 
 type Props = {
-    icon: any,
+    icon: React.ReactNode,
     title: string,
     progress: number,
-    index: number
+    index: number;
 }
 
 export default memo(function SkillItem({ index, icon, title, progress }: Props) {

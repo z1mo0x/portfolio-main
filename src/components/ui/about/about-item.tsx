@@ -1,10 +1,7 @@
 import React from 'react'
 
-type Props = {
 
-}
-
-export default function AboutItem({ }: Props) {
+export default function AboutItem() {
     return (
         <div className="">
         </div>
