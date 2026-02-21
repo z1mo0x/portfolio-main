@@ -4,11 +4,17 @@ import Button from './button'
 import Link from 'next/link'
 import { siteConfig } from '@/config/siteConfig'
 import CodeTag from './codeTag'
+import { motion } from 'framer-motion'
+
 
 
 export default memo(function Header() {
     return (
-        <div className="header fixed h-[100px] px-5 pt-5 z-10 w-full">
+        <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeIn' }}
+            className="header fixed h-[100px] px-5 pt-5 z-10 w-full">
             <div
                 className="header__wrapper  backdrop-blur-xs flex h-full gap-5 justify-between items-center 
                  rounded-4xl px-5 py-2.5"
@@ -29,6 +35,6 @@ export default memo(function Header() {
                     <Button size='lg' className='px-10'>Связаться</Button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 })

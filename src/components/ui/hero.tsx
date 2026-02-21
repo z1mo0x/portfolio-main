@@ -28,7 +28,7 @@ export default memo(function Hero() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: .3 }}
+                    transition={{ duration: .5 }}
                     className="absolute top left w-full h-full z-0">
                     <Silk
                         speed={3}
