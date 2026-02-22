@@ -18,6 +18,7 @@ export default memo(function SkillItem({ index, icon, title, progress }: Props) 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: .3, delay: index * .10 }}
+            viewport={{ once: true }}
         >
             <ElectricBorder
                 speed={1}
