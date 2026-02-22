@@ -18,23 +18,14 @@ export default function AboutItem({ index }: ItemProps) {
         hiddenOdd: {
             opacity: 0,
             x: 100,
-            scale: .9,
-            transition: {
-                duration: 0.4  // ✅ Плавный возврат!
-            }
         },
         hiddenEven: {
             opacity: 0,
             x: -100,
-            scale: .9,
-            transition: {
-                duration: 0.4  // ✅ Плавный возврат!
-            }
         },
         showEven: {
             opacity: 1,
             x: 0,
-            scale: 1,
             transition: {
                 duration: .5
             }
@@ -42,7 +33,6 @@ export default function AboutItem({ index }: ItemProps) {
         showOdd: {
             opacity: 1,
             x: 0,
-            scale: 1,
             transition: {
                 duration: .5
             }
