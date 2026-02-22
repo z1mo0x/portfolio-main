@@ -103,8 +103,8 @@ export default memo(function Hero() {
                         className="bungee text-7xl">{'Developer/>'}</motion.div>
                 </div >
             </div>
-            <div className="absolute -bottom-[50px] w-full z-1">
-                <GradualBlur strength={1} />
+            <div className="absolute -bottom-[50px] h-[100px] w-full z-1 bg-rgba(255,255,255,.1) backdrop-blur-[3px]">
+                {/* <GradualBlur strength={1} /> */}
             </div>
         </div >
     )
