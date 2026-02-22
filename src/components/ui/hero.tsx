@@ -6,7 +6,6 @@ import { BiLogoTypescript } from "react-icons/bi"
 import { DiGit, DiHtml5, DiJavascript1, DiReact } from "react-icons/di"
 import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import Silk from '@/components/Silk'
-import GradualBlur from '@/components/GradualBlur'
 
 const stackItems = 'flex gap-2 items-center'
 const containerVariants = {
