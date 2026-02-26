@@ -13,7 +13,7 @@ export default memo(function Header() {
         <motion.div
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeIn' }}
+            transition={{ duration: .5, delay: 1.5 }}
             className="header fixed h-[100px] px-5 pt-5 z-10 w-full">
             <div
                 className="header__wrapper bg-[rgba(255,255,255,.025)] backdrop-blur-xs flex h-full gap-5 justify-between items-center 
