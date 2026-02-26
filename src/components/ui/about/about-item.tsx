@@ -4,7 +4,7 @@ import GradientText from '@/components/GradientText'
 import { motion } from 'framer-motion'
 import React, { memo } from 'react'
 
-const styleMain = `w-full border border-primary/25 rounded-xl p-5 `
+const styleMain = `w-full border border-primary/40 rounded-xl p-5 `
 const left = "absolute z-1 left-[calc(100%+20px)] top-1/2 -translate-y-1/2"
 const right = "absolute z-1 right-[calc(100%+20px)] top-1/2 -translate-y-1/2"
 type ItemProps = {
@@ -51,7 +51,7 @@ export default memo(function AboutItem({ title, index, workName, year, descr }: 
                 whileInView={`${!isOdd ? 'showOdd' : 'showEven'}`}
                 viewport={{ amount: .5, margin: "0% 0% -15% 0%" }}
                 className={`${styleMain} relative`}>
-                <div className={`${!isOdd ? `${right}` : `${left}`} bungee bg-[rgba(255,255,255,.1)] p-2 rounded-lg border border-accent w-max backdrop-blur-[10px]`}>
+                <div className={`${!isOdd ? `${right}` : `${left}`} bungee bg-[rgba(255,255,255,.1)] p-2 rounded-xl border border-primary/20 w-max backdrop-blur-[10px]`}>
                     {year}</div>
                 <GradientText
                     colors={["#ffa873", "#2b7fff"]}
