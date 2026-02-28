@@ -6,11 +6,12 @@ import { DiCss3Full, DiHtml5, DiJavascript1 } from 'react-icons/di'
 import { motion } from 'framer-motion'
 import Button from '../button'
 import { ChartSpline, CircleGauge, Rotate3d } from 'lucide-react'
+import CodeTag from '../codeTag'
 
 
 const list = [
     {
-        title: '+50% заявок',
+        title: '+52% заявок',
         icon: <ChartSpline className='text-primary' />,
     },
     {
@@ -38,23 +39,30 @@ export const ProjectItem = () => {
             </div>
             <div className="px-5 py-[15px] flex flex-col border border-primary/50 rounded-xl">
                 <div className="font-bold text-3xl">Сайт риэлтора</div>
-                <div className="mt-2.5">
-                    <div className="grid gap-y-2.5">
+                <div className="mt-2.5 grow-1">
+                    <div className="flex gap-2.5">
                         {list.map((item) => {
-                            return <div className='flex gap-2'>
+                            return <div key={item.title} className='flex gap-2'>
                                 {item.icon} {item.title}
                             </div>
                         })}
                     </div>
-                    <div className="mt-2.5">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Свою переписывается пор знаках послушавшись ручеек правилами продолжил но, текста домах. Он деревни домах переписали использовало меня возвращайся речью маленькая!</div>
-                    <div className="mt-4 font-medium text-xl">Технологии:</div>
-                    <div className="flex gap-2 flex-wrap">
+                    <div className="mt-5">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Свою переписывается пор знаках послушавшись ручеек правилами продолжил но, текста домах.</div>
+                    {/* <div className="mt-4 font-medium text-xl">Технологии:</div> */}
+                    <div className="mt-4 flex gap-2 flex-wrap">
                         <div className=""><DiHtml5 size={50} className='text-orange-400' /></div>
                         <div className=""><DiCss3Full size={50} className='text-blue-400' /></div>
                         <div className=""><DiJavascript1 size={50} className='text-yellow-300' /></div>
                     </div>
                 </div>
-                <Button className='w-max mt-auto' size='lg' variant='outline'>Изучить проект</Button>
+                <div className="flex gap-5">
+                    <Button className='w-max mt-5' size='lg' variant='outline'>Изучить проект</Button>
+                    <Button className='w-max mt-5' size='lg' variant='default'>
+                        <CodeTag color='text-white'>
+                            Github
+                        </CodeTag>
+                    </Button>
+                </div>
             </div>
         </motion.div>
 

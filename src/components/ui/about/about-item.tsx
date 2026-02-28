@@ -7,6 +7,7 @@ import React, { memo } from 'react'
 const styleMain = `w-full border border-primary/40 rounded-xl p-5 `
 const left = "absolute z-1 left-[calc(100%+20px)] top-1/2 -translate-y-1/2"
 const right = "absolute z-1 right-[calc(100%+20px)] top-1/2 -translate-y-1/2"
+
 type ItemProps = {
     index: number,
     title: string,

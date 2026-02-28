@@ -19,17 +19,23 @@ export default memo(function SkillItem({ index, icon, title, progress }: Props) 
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: .3, delay: index * .10 }}
             viewport={{ once: true }}
+            className='border border-blue-500 p-5 
+             rounded-xl flex flex-col items-center 
+             shadow-[0px_0px_10px] shadow-blue-500 
+             inset-shadow-[0px_0px_10px] inset-shadow-blue-500
+             '
         >
-            <ElectricBorder
+            {/* <ElectricBorder
                 speed={.5}
                 chaos={.04}
                 style={{ borderRadius: 16 }}
                 color='#2b7fff'
-                className={"p-5 flex flex-col text-center"}>
-                <div className="justify-self-center">
-                    {icon}
-                </div>
-                <div className="font-bold text-xl mt-2.5">
+                className={"p-5 flex flex-col text-center"}> */}
+            <div className="">
+                {icon}
+            </div>
+            <div className="h-full w-full flex flex-col justify-end items-center">
+                <div className="bungee text-xl mt-2.5">
                     {title}
                 </div>
                 <div className="overflow-hidden rounded-xl mt-2.5 h-[8px] bg-gray-700 w-full">
@@ -40,7 +46,8 @@ export default memo(function SkillItem({ index, icon, title, progress }: Props) 
                         viewport={{ once: true }}
                         className="bg-primary h-full"></motion.div>
                 </div>
-            </ElectricBorder >
+            </div>
+            {/* </ElectricBorder > */}
         </motion.div>
     )
 })

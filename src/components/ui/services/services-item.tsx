@@ -19,13 +19,18 @@ export default memo(function ServicesItem({ index, title, descr, price }: Servic
     }).format(price)
 
     return (
-        <div className="service-card relative flex flex-col h-full border border-accent rounded-xl overflow-hidden">
+        <motion.div
+            initial={{ x: -100 * index, y: 20 * index, opacity: 0 }}
+            whileInView={{ x: 0, y: 0, opacity: 1 }}
+            transition={{ duration: .3, delay: .1 * index, ease: 'linear' }}
+            viewport={{ once: true }}
+            className="service-card relative flex flex-col h-full border border-accent rounded-xl overflow-hidden">
             <motion.div
                 initial={{ y: 0 }}
                 whileInView={{ y: "-100%" }}
-                transition={{ duration: .3, delay: .15 * index }}
-                viewport={{ once: true }}
-                className="absolute w-full h-full top left bg-white/50 backdrop-blur-xs z-2">
+                transition={{ duration: .5, delay: .25 * index }}
+                viewport={{ once: true, margin: "0% 0% -20% 0%" }}
+                className="absolute w-full h-full top left bg-white/50 backdrop-blur-md z-2">
             </motion.div>
             <div className="font-bold text-center text-xl bg-accent px-5 py-2.5">
                 <CodeTag color='text-ring'>
@@ -45,6 +50,6 @@ export default memo(function ServicesItem({ index, title, descr, price }: Servic
                     <Button className='mt-5 text-foreground' variant='default' size='lg'>Заказать</Button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 })
