@@ -8,7 +8,7 @@ import 'swiper/css';
 
 export default memo(function ServicesBlock() {
     return (
-        <div className="mt-20 py-10 bg-foreground rounded-xl">
+        <div className="mt-20 py-10 bg-blue-300 rounded-xl">
             <div className="container">
                 <Title className='text-secondary'>Мои услуги</Title>
                 <Swiper className='mt-10' slidesPerView={4} spaceBetween={30}>

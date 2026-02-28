@@ -2,9 +2,7 @@ import React from 'react'
 import Button from '../button'
 import CodeTag from '../codeTag'
 
-type Props = {}
-
-export default function ServicesItem({ }: Props) {
+export default function ServicesItem() {
     return (
         <div className="border border-accent rounded-xl overflow-hidden">
             <div className="">

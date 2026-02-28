@@ -8,7 +8,6 @@ import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import Silk from '@/components/Silk'
 import Button from "./button"
 import Magnet from "@/components/Magnet"
-import Link from "next/link"
 import { useScrollTo } from "../hooks/ScrollTo"
 
 const stackItems = 'flex gap-2 items-center'
@@ -120,11 +119,7 @@ export default memo(function Hero() {
                             Заказать проект
                         </Button>
                     </Magnet>
-                    <Button
-                        onClick={() => {
-                            useScrollTo()("#works")
-                        }}
-                        className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
+                    <Button className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
                         Портфолио
                     </Button>
                 </motion.div>
