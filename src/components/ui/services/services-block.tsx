@@ -3,29 +3,26 @@
 import Title from '@/components/common/title'
 import React, { memo } from 'react'
 import ServicesItem from './services-item'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { siteConfig } from '@/config/siteConfig';
 
 export default memo(function ServicesBlock() {
     return (
-        <div className="mt-20 py-10 bg-blue-300 rounded-xl">
+        <div className="mt-20 py-10 rounded-xl">
             <div className="container">
-                <Title className='text-secondary'>Мои услуги</Title>
-                <Swiper className='mt-10' slidesPerView={4} spaceBetween={30}>
-                    <SwiperSlide>
-                        <ServicesItem />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <ServicesItem />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <ServicesItem />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <ServicesItem />
-                    </SwiperSlide>
-                </Swiper>
+                <Title className=''>Мои услуги</Title>
+                <div className="mt-15 grid grid-cols-4 gap-5">
+                    {siteConfig.services.map((service, index) => {
+                        return (
+                            <ServicesItem key={service.title + index}
+                                title={service.title}
+                                descr={service.descr}
+                                price={service.price}
+                                index={index}
+                            />
+                        )
+                    })}
+                </div>
             </div>
-        </div>
+        </div >
     )
 })

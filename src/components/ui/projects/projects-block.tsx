@@ -7,10 +7,9 @@ export default function ProjectsBlock() {
         <div className="pt-30" id='works'>
             <div className="container">
                 <Title>Мои работы</Title>
-            </div>
-            <div className='grid gap-5 mt-15'>
-                <ProjectItem />
-                <ProjectItem />
+                <div className='grid gap-5 mt-15'>
+                    <ProjectItem />
+                </div>
             </div>
         </div>
     )

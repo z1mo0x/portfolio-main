@@ -25,6 +25,9 @@ const iconsVariants = {
 } as const;
 
 export default memo(function Hero() {
+
+    const scrollTo = useScrollTo();
+
     return (
         <div className="relative h-screen">
             <AnimatePresence mode="popLayout">
@@ -108,18 +111,24 @@ export default memo(function Hero() {
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .5, delay: 1.5 }}
+                    viewport={{ once: true }}
                     className="mt-10 text-center font-medium text-xl">Создаю уникальные интерфейсы </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .5, delay: 1.6 }}
+                    viewport={{ once: true }}
                     className="col-span-3 mt-10 flex gap-20">
                     <Magnet padding={25}>
                         <Button variant="shadow" size="lg">
                             Заказать проект
                         </Button>
                     </Magnet>
-                    <Button className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
+                    <Button
+                        onClick={() => {
+                            scrollTo("#works");
+                        }}
+                        className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
                         Портфолио
                     </Button>
                 </motion.div>

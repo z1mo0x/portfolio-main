@@ -21,7 +21,7 @@ export default memo(function SkillItem({ index, icon, title, progress }: Props) 
             viewport={{ once: true }}
         >
             <ElectricBorder
-                speed={1}
+                speed={.5}
                 chaos={.04}
                 style={{ borderRadius: 16 }}
                 color='#2b7fff'
