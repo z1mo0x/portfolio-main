@@ -1,8 +1,7 @@
 "use client";
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useRef } from "react";
 import Lenis from "lenis";
 
-// Ручная типизация для Lenis (библиотека не имеет типов)
 interface LenisOptions {
     duration?: number;
     easing?: (t: number) => number;
@@ -14,9 +13,23 @@ interface LenisOptions {
 interface LenisInstance {
     raf(time: number): void;
     destroy(): void;
+    scrollTo(
+        target: number | string | HTMLElement,
+        options?: {
+            offset?: number;
+            duration?: number;
+            easing?: (t: number) => number;
+            immediate?: boolean;
+            lock?: boolean;
+            lerp?: number;
+            onStart?: () => void;
+            onComplete?: () => void;
+        }
+    ): void;
+
 }
 
-const LenisContext = createContext<LenisInstance | null>(null);
+export const LenisContext = createContext<LenisInstance | null>(null);
 
 export function LenisProvider({
     children,
@@ -28,20 +41,26 @@ export function LenisProvider({
     children: React.ReactNode;
     options?: Partial<LenisOptions>;
 }) {
+
+    const lenisRef = useRef<LenisInstance | null>(null)
+
     useEffect(() => {
         const lenis = new Lenis(options) as LenisInstance;
-
+        lenisRef.current = lenis;
         const raf = (time: number) => {
             lenis.raf(time);
             requestAnimationFrame(raf);
         };
         requestAnimationFrame(raf);
 
-        return () => lenis.destroy();
+        return () => {
+            lenis.destroy()
+            lenisRef.current = null;
+        };
     }, [options]);
 
     return (
-        <LenisContext.Provider value={null}>
+        <LenisContext.Provider value={lenisRef.current}>
             {children}
         </LenisContext.Provider>
     );

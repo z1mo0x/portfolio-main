@@ -14,7 +14,7 @@ export const ProjectItem = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 1 }}
             transition={{ duration: .3 }}
-            className='grid grid-cols-3 border-y-1 border-white p-5'>
+            className='grid grid-cols-3 border-y-1 border-foreground p-5'>
             <div className="h-full overflow-hidden rounded-xl">
                 <Image className='h-full' src={project} alt='Фото' />
             </div>

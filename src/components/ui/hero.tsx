@@ -6,6 +6,10 @@ import { BiLogoTypescript } from "react-icons/bi"
 import { DiGit, DiHtml5, DiJavascript1, DiReact } from "react-icons/di"
 import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import Silk from '@/components/Silk'
+import Button from "./button"
+import Magnet from "@/components/Magnet"
+import Link from "next/link"
+import { useScrollTo } from "../hooks/ScrollTo"
 
 const stackItems = 'flex gap-2 items-center'
 const containerVariants = {
@@ -37,7 +41,7 @@ export default memo(function Hero() {
                     />
                 </motion.div>
             </AnimatePresence>
-            <div className="container flex items-center h-full justify-center relative z-1">
+            <div className="container flex-col flex items-center h-full justify-center relative z-1">
                 <div className="grid grid-cols-2 gap-5 items-center">
                     <motion.div
                         initial={{ x: -25, y: 60, opacity: 0 }}
@@ -101,10 +105,31 @@ export default memo(function Hero() {
                         transition={{ type: 'spring', delay: .5, y: { delay: 1, duration: .3 }, opacity: { duration: .5 } }}
                         className="bungee text-7xl">{'Developer/>'}</motion.div>
                 </div >
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: .5, delay: 1.5 }}
+                    className="mt-10 text-center font-medium text-xl">Создаю уникальные интерфейсы </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: .5, delay: 1.6 }}
+                    className="col-span-3 mt-10 flex gap-20">
+                    <Magnet padding={25}>
+                        <Button variant="shadow" size="lg">
+                            Заказать проект
+                        </Button>
+                    </Magnet>
+                    <Button
+                        onClick={() => {
+                            useScrollTo()("#works")
+                        }}
+                        className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
+                        Портфолио
+                    </Button>
+                </motion.div>
             </div>
-            <div className="absolute -bottom-[50px] h-[100px] w-full z-1 bg-rgba(255,255,255,.1) backdrop-blur-[3px]">
-                {/* <GradualBlur strength={1} /> */}
-            </div>
+            <div className="absolute -bottom-[50px] h-[100px] w-full z-1 bg-rgba(255,255,255,.1) backdrop-blur-[3px]"></div>
         </div >
     )
 })
