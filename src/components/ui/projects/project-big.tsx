@@ -25,7 +25,7 @@ const list = [
     }
 ]
 
-export const ProjectItem = () => {
+export const ProjectBig = () => {
     return (
         <motion.div
             initial={{ opacity: 0, y: -50 }}
@@ -33,14 +33,14 @@ export const ProjectItem = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: .3 }}
             transition={{ duration: .3 }}
-            className='grid  border border-primary/50 rounded-xl'>
+            className='grid grid-cols-2 gap-5'>
             <div className="">
-                <Image className='w-max rounded-t-xl  block mx-auto' src={project} alt='Фото' />
+                <Image className='w-max rounded-xl block mx-auto' src={project} alt='Фото' />
             </div>
-            <div className="px-5 py-[15px] flex flex-col">
+            <div className="px-5 py-[15px] flex flex-col border border-primary/50 rounded-xl">
                 <div className="font-bold text-3xl">Сайт риэлтора</div>
                 <div className="mt-2.5 grow-1">
-                    <div className="flex gap-2.5 flex-wrap grow-1">
+                    <div className="flex gap-2.5">
                         {list.map((item) => {
                             return <div key={item.title} className='flex gap-2'>
                                 {item.icon} {item.title}
@@ -48,16 +48,16 @@ export const ProjectItem = () => {
                         })}
                     </div>
                     <div className="mt-5">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Свою переписывается пор знаках послушавшись ручеек правилами продолжил но, текста домах.</div>
-                    <div className="mt-4 font-medium text-xl">Технологии:</div>
-                    <div className="mt-4 flex gap-2 flex-wrap justify-center">
+                    {/* <div className="mt-4 font-medium text-xl">Технологии:</div> */}
+                    <div className="mt-4 flex gap-2 flex-wrap">
                         <div className=""><DiHtml5 size={50} className='text-orange-400' /></div>
                         <div className=""><DiCss3Full size={50} className='text-blue-400' /></div>
                         <div className=""><DiJavascript1 size={50} className='text-yellow-300' /></div>
                     </div>
                 </div>
                 <div className="flex gap-5">
-                    <Button className='mt-5 grow-1' size='lg' variant='outline'>Изучить проект</Button>
-                    <Button className='mt-5 grow-1' size='lg' variant='default'>
+                    <Button className='w-max mt-5' size='lg' variant='outline'>Изучить проект</Button>
+                    <Button className='w-max mt-5' size='lg' variant='default'>
                         <CodeTag color='text-white'>
                             Github
                         </CodeTag>

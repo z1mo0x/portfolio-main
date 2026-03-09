@@ -20,8 +20,8 @@ export default memo(function ServicesItem({ index, title, descr, price }: Servic
 
     return (
         <motion.div
-            initial={{ x: -100 * index, y: 20 * index, opacity: 0 }}
-            whileInView={{ x: 0, y: 0, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: .3, delay: .1 * index, ease: 'linear' }}
             viewport={{ once: true }}
             className="service-card relative flex flex-col h-full border border-accent rounded-xl overflow-hidden">

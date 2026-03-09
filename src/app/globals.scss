@@ -278,3 +278,21 @@ body {
     transform: translateY(-5px) scale(0.99);
   }
 }
+
+.review-item {
+  transition: all .3s;
+
+
+  &:hover {
+    border-color:
+      color-mix(in oklab, var(--primary) 75%, transparent);
+
+    .review-name {
+      top: -15px;
+      border-color:
+        color-mix(in oklab, var(--primary) 75%, transparent);
+      box-shadow: 2px 2px 0px color-mix(in oklab, var(--primary) 75%, transparent);
+      ;
+    }
+  }
+}
