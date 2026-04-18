@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bungee, Rubik } from "next/font/google";
 import "./globals.scss";
-import { LenisProvider } from "@/providers/lenis-provider";
+import LenisProvider from "@/providers/lenis-provider";
 import Header from "@/components/ui/header";
 
 const bungee = Bungee({

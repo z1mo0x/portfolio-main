@@ -8,7 +8,6 @@ import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import Silk from '@/components/Silk'
 import Button from "./buttonMain"
 import Magnet from "@/components/Magnet"
-import { useScrollTo } from "../hooks/ScrollTo"
 import Link from "next/link"
 
 const stackItems = 'flex gap-2 items-center'
@@ -27,7 +26,6 @@ const iconsVariants = {
 
 export default memo(function Hero() {
 
-    const scrollTo = useScrollTo();
 
     return (
         <div className="relative h-screen">
