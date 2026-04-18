@@ -1,91 +1,38 @@
+// components/LenisProvider.tsx
 "use client";
-import { createContext, useEffect, useRef } from "react";
+
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
-interface LenisOptions {
-    duration?: number;
-    easing?: (t: number) => number;
-    smoothWheel?: boolean;
-    smoothTouch?: boolean;
-    infinite?: boolean;
-    anchors?: boolean;
-}
+// Импортируем тип опций (если нужно строго типизировать)
+import type { LenisOptions } from "lenis";
 
-interface LenisInstance {
-    raf(time: number): void;
-    destroy(): void;
-    scrollTo(
-        target: number | string | HTMLElement,
-        options?: {
-            offset?: number;
-            duration?: number;
-            easing?: (t: number) => number;
-            immediate?: boolean;
-            lock?: boolean;
-            lerp?: number;
-            onStart?: () => void;
-            onComplete?: () => void;
-
-        }
-    ): void;
-
-}
-export const LenisContext = createContext<LenisInstance | null>(null);
-
-export function LenisProvider({
-    children,
-    options = {
-        duration: 2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        anchors: true,
-        smoothWheel: true,  // Оставь true для wheel, но отключай при drag
-    }
-}: {
-    children: React.ReactNode;
-    options?: Partial<LenisOptions>;
-}) {
-    const lenisRef = useRef<LenisInstance | null>(null);
-    const rafRef = useRef<number>(0);
-    const isScrollbarDragging = useRef(false);
+export default function LenisProvider({ children }: { children: React.ReactNode }) {
+    // ✅ Используем useRef, а не useState
+    const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
-        const lenis = new Lenis(options) as LenisInstance;
+        // ✅ Опции можно типизировать через Partial<LenisOptions>
+        const options = {
+            duration: 1.2,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothTouch: true,
+        };
+
+        const lenis = new Lenis(options);
         lenisRef.current = lenis;
 
-        // Детекция драггинга скроллбара (mousedown/mousemove/mouseup на document)
-        const handleMouseDown = () => {
-            isScrollbarDragging.current = true;
-            if (lenis.stop) lenis.stop();  // Пауза Lenis
-        };
-        const handleMouseUp = () => {
-            isScrollbarDragging.current = false;
-            if (lenis.start) lenis.start();  // Возобновление
-        };
-
-        document.addEventListener('mousedown', handleMouseDown);
-        document.addEventListener('mouseup', handleMouseUp);
-        // Опционально: mousemove для точности, но может быть overhead
-
         const raf = (time: number) => {
-            if (lenisRef.current && !isScrollbarDragging.current) {
-                lenis.raf(time);
-            }
-            rafRef.current = requestAnimationFrame(raf);
+            lenis.raf(time);
+            requestAnimationFrame(raf);
         };
-        rafRef.current = requestAnimationFrame(raf);
+
+        requestAnimationFrame(raf);
 
         return () => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            document.removeEventListener('mousedown', handleMouseDown);
-            document.removeEventListener('mouseup', handleMouseUp);
             lenis.destroy();
-            lenisRef.current = null;
         };
-    }, [options]);
+    }, []); // ✅ Пустой массив зависимостей — инициализация один раз
 
-    return (
-        <LenisContext.Provider value={lenisRef.current}>
-            {children}
-        </LenisContext.Provider>
-    );
+    return <>{children}</>;
 }
