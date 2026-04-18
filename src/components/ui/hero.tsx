@@ -6,9 +6,10 @@ import { BiLogoTypescript } from "react-icons/bi"
 import { DiGit, DiHtml5, DiJavascript1, DiReact } from "react-icons/di"
 import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
 import Silk from '@/components/Silk'
-import Button from "./button"
+import Button from "./buttonMain"
 import Magnet from "@/components/Magnet"
 import { useScrollTo } from "../hooks/ScrollTo"
+import Link from "next/link"
 
 const stackItems = 'flex gap-2 items-center'
 const containerVariants = {
@@ -124,13 +125,12 @@ export default memo(function Hero() {
                             Заказать проект
                         </Button>
                     </Magnet>
-                    <Button
-                        onClick={() => {
-                            scrollTo("#works");
-                        }}
-                        className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
-                        Портфолио
-                    </Button>
+                    <Link href={'#works'}>
+                        <Button
+                            className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
+                            Портфолио
+                        </Button>
+                    </Link>
                 </motion.div>
             </div>
             <div className="absolute -bottom-[50px] h-[100px] w-full z-1 bg-rgba(255,255,255,.1) backdrop-blur-[3px]"></div>

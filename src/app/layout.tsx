@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bungee, Rubik } from "next/font/google";
 import "./globals.scss";
 import { LenisProvider } from "@/providers/lenis-provider";
+import Header from "@/components/ui/header";
 
 const bungee = Bungee({
   variable: "--font-bungee",
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${bungee.variable} ${mainFont.variable} antialiased`}
       >
         <LenisProvider>
+          <Header />
           {children}
         </LenisProvider>
       </body>

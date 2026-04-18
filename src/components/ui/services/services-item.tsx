@@ -1,16 +1,11 @@
 import React, { memo } from 'react'
-import Button from '../button'
+import Button from '../buttonMain'
 import CodeTag from '../codeTag'
 import { motion } from 'framer-motion'
+import { ServicesProps } from '@/types/services'
 
-type ServicesProps = {
-    index: number,
-    title: string,
-    descr: string,
-    price: number
-}
 
-export default memo(function ServicesItem({ index, title, descr, price }: ServicesProps) {
+export default memo(function ServicesItem({ index, title, descr, price, onCardClick }: ServicesProps) {
 
     const correctPrice = new Intl.NumberFormat("RU-ru", {
         useGrouping: true,
@@ -22,16 +17,16 @@ export default memo(function ServicesItem({ index, title, descr, price }: Servic
         <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: .3, delay: .1 * index, ease: 'linear' }}
+            transition={{ duration: .3, delay: index ? .3 * index : .3, ease: 'linear' }}
             viewport={{ once: true }}
             className="service-card relative flex flex-col h-full border border-accent rounded-xl overflow-hidden">
-            <motion.div
+            {/* <motion.div
                 initial={{ y: 0 }}
                 whileInView={{ y: "-100%" }}
                 transition={{ duration: .5, delay: .25 * index }}
                 viewport={{ once: true, margin: "0% 0% -20% 0%" }}
                 className="absolute w-full h-full top left bg-white/50 backdrop-blur-md z-2">
-            </motion.div>
+            </motion.div> */}
             <div className="font-bold text-center text-xl bg-accent px-5 py-2.5">
                 <CodeTag color='text-ring'>
                     {title}
@@ -40,6 +35,10 @@ export default memo(function ServicesItem({ index, title, descr, price }: Servic
             <div className="flex flex-col h-full items-center p-5 bg-[rgba(255,255,255,.025)]">
                 <div className="mt-2.5"> {descr}</div>
                 <div className="h-full flex flex-col justify-end items-center">
+                    <div className="mt-5 cursor-pointer rounded-lg px-3 py-1 flex gap-2 items-center" onClick={onCardClick}>
+                        Что входит?
+                        <span className='rounded-full bg-blue-500/50 w-6 h-6 block grid items-center justify-center font-bold'>!</span>
+                    </div>
                     <div className="mt-5 text-foreground/50">
                         от
                         <span className='font-medium text-2xl text-primary 

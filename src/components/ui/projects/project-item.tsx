@@ -4,7 +4,7 @@ import project from '@/img/project-1.png'
 import Image from 'next/image'
 import { DiCss3Full, DiHtml5, DiJavascript1 } from 'react-icons/di'
 import { motion } from 'framer-motion'
-import Button from '../button'
+import Button from '../buttonMain'
 import { ChartSpline, CircleGauge, Rotate3d } from 'lucide-react'
 import CodeTag from '../codeTag'
 
@@ -31,7 +31,7 @@ export const ProjectItem = () => {
             initial={{ opacity: 0, y: -50 }}
             whileHover={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: .3 }}
+            viewport={{ once: true, amount: .3 }}
             transition={{ duration: .3 }}
             className='grid  border border-primary/50 rounded-xl'>
             <div className="">

@@ -1,19 +1,24 @@
 'use client'
 import React, { memo } from 'react'
-import Button from './button'
+import Button from './buttonMain'
 import Link from 'next/link'
 import { siteConfig } from '@/config/siteConfig'
 import CodeTag from './codeTag'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 
 
 export default memo(function Header() {
+
+    const currentPathname = usePathname()
+    const isMain = currentPathname === '/';
+
     return (
         <motion.div
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: .5, delay: 1.5 }}
+            transition={{ duration: .5, delay: !isMain ? 0 : 1.5 }}
             className="header fixed h-[100px] px-5 pt-5 z-10 w-full">
             <div
                 className="header__wrapper bg-[rgba(255,255,255,.025)] backdrop-blur-xs flex h-full gap-5 justify-between items-center 
