@@ -8,7 +8,7 @@ interface LenisOptions {
     smoothWheel?: boolean;
     smoothTouch?: boolean;
     infinite?: boolean;
-    anchors?: boolean | any;
+    anchors?: boolean;
 }
 
 interface LenisInstance {
@@ -38,7 +38,9 @@ export function LenisProvider({
     options = {
         duration: 2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        anchors: true
+        anchors: true,
+        smoothWheel: true,
+        smoothTouch: false,
     }
 }: {
     children: React.ReactNode;

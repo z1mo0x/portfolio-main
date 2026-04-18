@@ -35,12 +35,12 @@ async function BlogDetail({ params }: { params: Promise<{ id: string }> }) {
                         <div className="mt-5">
                             {clearDate}
                         </div>
-                        <Image
+                        {/* <Image
                             width={500}
                             height={300}
                             src={current ? current.image : ''}
                             alt={current ? current.title : 'Картинка'}
-                        />
+                        /> */}
                     </div>
                 </div>
                 <div className="blog-detail">
