@@ -26,7 +26,6 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
         return () => {
             lenis.destroy();
         };
-    }, []); // ✅ Пустой массив зависимостей — инициализация один раз
-
+    }, []);
     return <>{children}</>;
 }

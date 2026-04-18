@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export async function generateStaticParams() {
     return siteConfig.blog.map((post) => ({
-        page: post.id.toString(),
+        id: post.id.toString(),
     }))
 }
 
