@@ -19,7 +19,7 @@ const BlogItem = (props: BlogItemProps) => {
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: .3, delay: .3 * props?.index }}
+            transition={{ duration: .3, delay: .3 * (props.index ? props.index : 1) }}
             className='blog-item border border-border rounded-lg'>
             <div className="blog-image w-full h-[250px] relative">
                 <Image className='object-cover rounded-t-lg' src={props.image} alt={props.title} fill />

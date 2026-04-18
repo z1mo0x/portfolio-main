@@ -30,7 +30,6 @@ interface LenisInstance {
     ): void;
 
 }
-
 export const LenisContext = createContext<LenisInstance | null>(null);
 
 export function LenisProvider({
@@ -39,27 +38,47 @@ export function LenisProvider({
         duration: 2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         anchors: true,
-        smoothWheel: true,
-        smoothTouch: false,
+        smoothWheel: true,  // Оставь true для wheel, но отключай при drag
     }
 }: {
     children: React.ReactNode;
     options?: Partial<LenisOptions>;
 }) {
-
-    const lenisRef = useRef<LenisInstance | null>(null)
+    const lenisRef = useRef<LenisInstance | null>(null);
+    const rafRef = useRef<number>(0);
+    const isScrollbarDragging = useRef(false);
 
     useEffect(() => {
         const lenis = new Lenis(options) as LenisInstance;
         lenisRef.current = lenis;
-        const raf = (time: number) => {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
+
+        // Детекция драггинга скроллбара (mousedown/mousemove/mouseup на document)
+        const handleMouseDown = () => {
+            isScrollbarDragging.current = true;
+            if (lenis.stop) lenis.stop();  // Пауза Lenis
         };
-        requestAnimationFrame(raf);
+        const handleMouseUp = () => {
+            isScrollbarDragging.current = false;
+            if (lenis.start) lenis.start();  // Возобновление
+        };
+
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mouseup', handleMouseUp);
+        // Опционально: mousemove для точности, но может быть overhead
+
+        const raf = (time: number) => {
+            if (lenisRef.current && !isScrollbarDragging.current) {
+                lenis.raf(time);
+            }
+            rafRef.current = requestAnimationFrame(raf);
+        };
+        rafRef.current = requestAnimationFrame(raf);
 
         return () => {
-            lenis.destroy()
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            document.removeEventListener('mousedown', handleMouseDown);
+            document.removeEventListener('mouseup', handleMouseUp);
+            lenis.destroy();
             lenisRef.current = null;
         };
     }, [options]);
