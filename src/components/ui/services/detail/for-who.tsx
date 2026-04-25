@@ -12,6 +12,7 @@ const ForWhoBlock = memo(({ index, text, className }: { index: number, text: str
         </div>
     )
 })
+ForWhoBlock.displayName = 'ForWhoBlock';
 
 const ForWhoDetail = memo(({ forWho }: Pick<ServicesPropsDetail, 'forWho'>) => {
 
@@ -46,5 +47,7 @@ const ForWhoDetail = memo(({ forWho }: Pick<ServicesPropsDetail, 'forWho'>) => {
         </div>
     )
 })
+
+ForWhoDetail.displayName = 'ForWhoDetail';
 
 export default ForWhoDetail
