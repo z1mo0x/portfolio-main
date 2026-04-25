@@ -3,9 +3,10 @@ import Button from '../buttonMain'
 import CodeTag from '../codeTag'
 import { motion } from 'framer-motion'
 import { ServicesProps } from '@/types/services'
+import Link from 'next/link'
 
 
-export default memo(function ServicesItem({ index, title, descr, price, onCardClick }: ServicesProps) {
+export default memo(function ServicesItem({ index, title, descr, price, onCardClick, detail_link }: ServicesProps) {
 
     const correctPrice = new Intl.NumberFormat("RU-ru", {
         useGrouping: true,
@@ -20,13 +21,6 @@ export default memo(function ServicesItem({ index, title, descr, price, onCardCl
             transition={{ duration: .3, delay: index ? .3 * index : .3, ease: 'linear' }}
             viewport={{ once: true }}
             className="service-card relative flex flex-col h-full border border-accent rounded-xl overflow-hidden">
-            {/* <motion.div
-                initial={{ y: 0 }}
-                whileInView={{ y: "-100%" }}
-                transition={{ duration: .5, delay: .25 * index }}
-                viewport={{ once: true, margin: "0% 0% -20% 0%" }}
-                className="absolute w-full h-full top left bg-white/50 backdrop-blur-md z-2">
-            </motion.div> */}
             <div className="font-bold text-center text-xl bg-accent px-5 py-2.5">
                 <CodeTag color='text-ring'>
                     {title}
@@ -46,7 +40,9 @@ export default memo(function ServicesItem({ index, title, descr, price, onCardCl
                             <div className="absolute w-full h-full bg-primary blur-xl top-0 left-0 -z-1"></div> {correctPrice} </span>
                         руб.
                     </div>
-                    <Button className='mt-5 text-foreground' variant='default' size='lg'>Заказать</Button>
+                    <Link href={`services/${detail_link}`}>
+                        <Button className='mt-5 text-foreground' variant='default' size='lg'>Подробнее</Button>
+                    </Link>
                 </div>
             </div>
         </motion.div>

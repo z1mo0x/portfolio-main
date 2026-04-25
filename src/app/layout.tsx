@@ -16,8 +16,43 @@ const mainFont = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "Разработчик сайтов на React и Next.js",
-  description: "Разработка сайтов по адекватным ценам! 50% предоплата, вы получите результат и сможете наблюдать за проектом в любое время!",
+  metadataBase: new URL('https://z1mo0x.vercel.app'),
+  title: 'Андрей — Frontend Developer',
+  description:
+    'Разработка сайтов на React и Next.js. Создаю быстрые, понятные и аккуратные интерфейсы с упором на качество, SEO и адаптивность.',
+  keywords: [
+    'frontend developer',
+    'React',
+    'Next.js',
+    'JavaScript',
+    'TypeScript',
+    'верстка',
+    'SEO',
+    'веб-разработка',
+    'портфолио',
+    'блог',
+  ],
+  authors: [{ name: 'Андрей' }],
+  creator: 'Андрей',
+  publisher: 'Андрей',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Андрей — Frontend Developer',
+    description:
+      'Разработка сайтов на React и Next.js с упором на скорость, SEO и качество интерфейса.',
+    url: 'https://z1mo0x.vercel.app',
+    siteName: 'Андрей — Frontend Developer',
+    locale: 'ru_RU',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Андрей — Frontend Developer',
+    description:
+      'Разработка сайтов на React и Next.js с упором на скорость, SEO и качество интерфейса.',
+  },
 };
 
 export default function RootLayout({
@@ -26,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="ru" className="dark">
       <body
         className={`${bungee.variable} ${mainFont.variable} antialiased`}
       >

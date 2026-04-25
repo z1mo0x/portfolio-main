@@ -14,7 +14,7 @@ export default memo(function ServicesBlock() {
 
     return (
         <>
-            <div className="mt-20 py-10 rounded-xl">
+            <div className="pt-30 py-10 rounded-xl">
                 <div className="container">
                     <Title className=''>Мои услуги</Title>
                     <div className="mt-15 grid grid-cols-4 gap-5">
@@ -26,7 +26,16 @@ export default memo(function ServicesBlock() {
                                     info={service.info}
                                     price={service.price}
                                     index={index}
-                                    onCardClick={() => setSelectedService(service)}
+                                    detail_link={service.page_id}
+                                    onCardClick={() => setSelectedService(
+                                        {
+                                            title: service.title,
+                                            descr: service.descr,
+                                            price: service.price,
+                                            info: service.info,
+                                            detail_link: service.page_id,
+                                        }
+                                    )}
                                 />
                             )
                         })}

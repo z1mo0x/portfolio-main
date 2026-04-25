@@ -15,7 +15,7 @@ export default function Home() {
       <Skills />
       <ProjectsBlock />
       <ReviewsBlock />
-      <BlogBlock />
+      <BlogBlock headingLevel={2} />
     </>
 
   );
