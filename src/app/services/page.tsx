@@ -1,9 +1,7 @@
 import ServicesBlock from '@/components/ui/services/services-block'
 import React from 'react'
 
-type Props = {}
-
-function ServicesPage({ }: Props) {
+function ServicesPage() {
     return (
         <ServicesBlock />
     )
