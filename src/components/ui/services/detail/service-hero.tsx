@@ -129,4 +129,7 @@ const ServiceHero = memo(({ title, descr, info }: Pick<ServicesProps, "title" | 
     )
 })
 
+ServiceHero.displayName = 'ServiceHero';
+
+
 export default ServiceHero
