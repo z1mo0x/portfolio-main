@@ -8,14 +8,16 @@ import { ServicesProps } from '@/types/services';
 import ServicesModal from './services-modal';
 import { AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useIsMain from '@/hooks/useIsMain';
 
 export default memo(function ServicesBlock() {
 
+    const isMain = useIsMain();
     const [selectedService, setSelectedService] = useState<ServicesProps | null>(null)
 
     return (
         <>
-            <div className="pt-30 py-10 rounded-xl">
+            <div className={`${isMain ? 'pt-20' : 'pt-30'} py-10 rounded-xl`}>
                 <div className="container">
                     <Title className=''>Мои услуги</Title>
                     <Swiper
@@ -24,7 +26,7 @@ export default memo(function ServicesBlock() {
                         spaceBetween={20}
                         breakpoints={{
                             320: {
-                                slidesPerView: 1.2
+                                slidesPerView: 1
                             },
                             768: {
                                 slidesPerView: 2

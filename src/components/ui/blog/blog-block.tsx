@@ -16,6 +16,8 @@ const BlogBlock = ({ headingLevel }: BlogBlockProps) => {
             <div className="container">
                 <Title lvl={headingLevel}>Блог о React и Next.js</Title>
                 <Swiper slidesPerView={3}
+                    spaceBetween={20}
+                    className='mt-15'
                     breakpoints={{
                         320: {
                             slidesPerView: 1.2
@@ -26,9 +28,12 @@ const BlogBlock = ({ headingLevel }: BlogBlockProps) => {
                         1024: {
                             slidesPerView: 2.5
                         },
+                        1200: {
+                            slidesPerView: 3
+                        },
                     }}>
                     {siteConfig.blog.map((blog_item, index) => {
-                        return <SwiperSlide key={blog_item.title + index}>
+                        return <SwiperSlide key={blog_item.title + index} className='!h-[unset]'>
                             <BlogItem {...blog_item} index={index} />
                         </SwiperSlide>
                     })}

@@ -7,13 +7,13 @@ import CodeTag from './codeTag'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { PhoneCall } from 'lucide-react'
+import useIsMain from '@/hooks/useIsMain'
 
 
 
 export default memo(function Header() {
 
-    const currentPathname = usePathname()
-    const isMain = currentPathname === '/';
+    const isMain = useIsMain();
     const [open, setOpen] = useState<boolean>(false)
 
 

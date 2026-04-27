@@ -20,15 +20,18 @@ const BlogItem = (props: BlogItemProps) => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: .3, delay: .3 * (props.index ? props.index : 1) }}
-            className='blog-item border border-border rounded-lg'>
+            viewport={{ once: true }}
+            className='blog-item flex flex-col border border-border h-full rounded-lg'>
             <div className="blog-image w-full h-[250px] relative">
                 <Image className='object-cover rounded-t-lg' src={props.image} alt={props.title} fill />
             </div>
-            <div className="p-5">
+            <div className="p-5 flex flex-col grow">
                 <div className="text-right text-[14px] text-muted-foreground">{clearDate}</div>
-                <div className="mt-2.5">
-                    <div className="font-bold">{props.title}</div>
-                    <div className="mt-4 line-clamp-3">
+                <div className="mt-2.5 flex-grow">
+                    <div className="font-bold max-[992px]:line-clamp-2">
+                        {props.title}
+                    </div>
+                    <div className="mt-4 line-clamp-3 ">
                         {props.descr}
                     </div>
                 </div>

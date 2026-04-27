@@ -5,6 +5,7 @@ import React, { memo, useEffect, useLayoutEffect, useState } from 'react'
 import AboutItem from './about-item'
 import { siteConfig } from '@/config/siteConfig'
 import { motion } from 'framer-motion'
+import useIsDesktop from '@/hooks/useIsDesktop'
 
 const container = {
     hidden: {
@@ -28,32 +29,17 @@ const items = {
 
 export default memo(function AboutBlock() {
 
-    const [isTablet, setIsTablet] = useState(false)
-
-    useLayoutEffect(() => {
-        const checkSize = () => {
-            const isTablet = window.innerWidth <= 1200;
-            setIsTablet(isTablet);
-        };
-
-        checkSize();
-
-        window.addEventListener('resize', checkSize);
-        return () => window.removeEventListener('resize', checkSize);
-    }, []);
-
-
-    console.log(isTablet);
-
+    const isDesktop = useIsDesktop();
 
     return (
-        <div className="min-h-screen pt-30">
+        <div className="min-h-screen pt-30 max-2xl:overflow-hidden max-2xl:pb-10">
             <div className="container">
                 <Title>Обо мне</Title>
                 <div className="about-section">
-                    {!isTablet
+                    {isDesktop
 
                         ?
+
                         <motion.div
                             variants={container}
                             initial={'hidden'}
@@ -73,13 +59,15 @@ export default memo(function AboutBlock() {
                          left-0 top-0 -ml-[4.5px] h-full bg-primary blur-xl">
                             </motion.div>
                         </motion.div>
+
                         :
+
                         <motion.div
                             variants={container}
                             initial={'hidden'}
                             whileInView={'visible'}
                             viewport={{ margin: "0% 0% -20% 0%" }}
-                            className="rounded-lg absolute w-[3px] z-0 right-1 h-full bg-primary"
+                            className="rounded-lg max-sm:hidden  absolute pt-5 w-[3px] z-0 left-20 h-full bg-primary"
                         >
                             <motion.div variants={items}
                                 className="w-[3px]  absolute left-0 top-0 h-full bg-primary blur-xs">
@@ -93,8 +81,9 @@ export default memo(function AboutBlock() {
                          left-0 top-0 -ml-[4.5px] h-full bg-primary blur-xl">
                             </motion.div>
                         </motion.div>
+
                     }
-                    <motion.div
+                    {/* <motion.div
                         variants={container}
                         initial={'hidden'}
                         whileInView={'visible'}
@@ -112,7 +101,7 @@ export default memo(function AboutBlock() {
                             className="w-[10px] absolute
                          left-0 top-0 -ml-[4.5px] h-full bg-primary blur-xl">
                         </motion.div>
-                    </motion.div>
+                    </motion.div> */}
                     {siteConfig.about.map((item, index) => {
                         return <AboutItem
                             key={item.title + index}
@@ -121,7 +110,7 @@ export default memo(function AboutBlock() {
                             descr={item.descr}
                             year={item.year}
                             workName={item.workName}
-                            isTablet={isTablet}
+                            isDesktop={isDesktop}
                         />
                     })}
                 </div>

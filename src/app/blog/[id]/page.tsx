@@ -1,7 +1,6 @@
+import BlogDetailInfo from '@/components/ui/blog/blog-detail-info';
 import { siteConfig } from '@/config/siteConfig'
-import DOMPurify from 'isomorphic-dompurify';
 import { Metadata } from 'next';
-import Image from 'next/image';
 
 export async function generateStaticParams() {
     return siteConfig.blog.map((post) => ({
@@ -72,7 +71,6 @@ async function BlogDetail({ params }: { params: Promise<{ id: string }> }) {
         day: 'numeric',
     }).format(new Date(current ? current.created_at : "01.01.0000"))
 
-    const cleanHTML = DOMPurify.sanitize(current.detail_info);
 
     return (
         <div className='pt-30'>
@@ -96,9 +94,8 @@ async function BlogDetail({ params }: { params: Promise<{ id: string }> }) {
                     </div>
                 </div>
                 <div className="blog-detail">
-
                     <div className="language-jsx">
-                        <div className="" dangerouslySetInnerHTML={{ __html: cleanHTML }}></div>
+                        <BlogDetailInfo html={current.detail_info} />
                     </div>
                 </div>
             </div>
