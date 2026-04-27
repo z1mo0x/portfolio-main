@@ -1,6 +1,5 @@
 'use client'
 
-import PrismCode from '@/components/common/prism-code';
 import { ServicesPropsDetail } from '@/types/services';
 import React, { memo, useState } from 'react'
 
@@ -36,7 +35,7 @@ const FaqItem = memo(({ q, a, index }: ServicesPropsDetail['faq'][0] & { index: 
             </div>
             <div className="p-5">
                 <div className="cursor-pointer" onClick={() => setOpen(prev => !prev)}>
-                    <div className="text-2xl"><span className='text-blue-500'>//</span> {q}</div>
+                    <div className="text-2xl"><span className='text-blue-500'>{"//"}</span> {q}</div>
                 </div>
                 <div className="h-0 overflow-hidden">
                     <div className=""></div>
