@@ -11,7 +11,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
             smoothTouch: true,
             anchors: true,
             syncTouch: true,
-            touchMultiplier: 2
+            touchMultiplier: 1.3
         };
 
 
