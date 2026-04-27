@@ -13,10 +13,10 @@ export default memo(function Skills() {
             whileInView={{ borderRadius: "0px" }}
             viewport={{ once: false, amount: 'all' }}
             transition={{ duration: .5 }}
-            className="mt-15 pt-15 bg-accent pb-15">
+            className="mt-15 pt-15 bg-accent pb-15 max-sm:pb-25 max-sm:pt-25 max-2xl:!rounded-none">
             <div className="container h-full">
                 <Title>Навыки и Технологии</Title>
-                <div className="grid grid-cols-5 mt-10 gap-5">
+                <div className="grid grid-cols-5 mt-10 gap-5 max-lg:grid-cols-3 max-md:grid-cols-2">
                     {siteConfig.skills.map((skill, index) => {
                         return <AboutItem key={skill.title + index} index={index} icon={skill.icon} title={skill.title} progress={skill.progress} />
                     })}

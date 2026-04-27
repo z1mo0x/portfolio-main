@@ -10,7 +10,8 @@ import Button from "./buttonMain"
 import Magnet from "@/components/Magnet"
 import Link from "next/link"
 
-const stackItems = 'flex gap-2 items-center'
+const stackItems = 'flex gap-2 items-center max-sm:w-full'
+
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,9 +27,14 @@ const iconsVariants = {
 
 export default memo(function Hero() {
 
+    const sizeIcons = `h-[100px] w-[100px]
+       max-xl:h-[75px] max-xl:w-[75px]
+       max-lg:h-[60px] max-lg:w-[60px]
+       max-md:h-[50px] max-md:w-[50px]
+       `
 
     return (
-        <div className="relative h-screen">
+        <div className="relative h-screen max-lg:overflow-hidden">
             <AnimatePresence mode="popLayout">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -43,13 +49,17 @@ export default memo(function Hero() {
                 </motion.div>
             </AnimatePresence>
             <div className="container flex-col flex items-center h-full justify-center relative z-1">
-                <div className="grid grid-cols-2 gap-5 items-center">
+                <div className="grid grid-cols-2  gap-5 items-center
+                max-sm:grid-cols-1 max-sm:w-full
+                ">
                     <motion.div
-                        initial={{ x: -25, y: 60, opacity: 0 }}
+                        initial={{ x: -25, y: 'var(--y-frontend)', opacity: 0 }}
                         whileInView={{ x: 0, y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ type: 'spring', delay: .5, y: { delay: 1, duration: .3 }, opacity: { duration: .5 } }}
-                        className="bungee text-7xl text-right">{'<Frontend'}</motion.div>
+                        className="bungee text-7xl max-sm:text-left  text-right
+                        max-xl:text-6xl max-lg:text-5xl max-md:text-4xl
+                        ">{'<Frontend'}</motion.div>
                     <motion.div
                         className={stackItems}
                         variants={containerVariants}
@@ -59,19 +69,19 @@ export default memo(function Hero() {
                         transition={{ delay: 1 }}
                     >
                         <motion.div variants={iconsVariants} transition={{ delay: .5 }}>
-                            <DiReact size={100} className="text-blue-400" />
+                            <DiReact className={`text-blue-400 ${sizeIcons}`} />
                         </motion.div>
 
                         <motion.div variants={iconsVariants}>
-                            <RiNextjsLine size={100} className="" />
+                            <RiNextjsLine className={`${sizeIcons}`} />
                         </motion.div>
 
                         <motion.div variants={iconsVariants}>
-                            <DiJavascript1 size={100} className="text-yellow-300" />
+                            <DiJavascript1 size={100} className={`text-yellow-300 ${sizeIcons}`} />
                         </motion.div>
 
                         <motion.div variants={iconsVariants}>
-                            <RiTailwindCssFill size={100} className="text-blue-500" />
+                            <RiTailwindCssFill size={100} className={`text-blue-500 ${sizeIcons}`} />
                         </motion.div>
                     </motion.div>
 
@@ -84,27 +94,27 @@ export default memo(function Hero() {
                         transition={{ delay: 1 }}
                     >
                         <motion.div variants={iconsVariants}>
-                            <RiCss3Line size={100} className="text-blue-400" />
+                            <RiCss3Line size={100} className={`text-blue-400 ${sizeIcons}`} />
                         </motion.div>
 
                         <motion.div variants={iconsVariants}>
-                            <DiGit size={100} className="text-orange-400" />
+                            <DiGit size={100} className={`text-orange-400 ${sizeIcons}`} />
                         </motion.div>
 
                         <motion.div variants={iconsVariants}>
-                            <BiLogoTypescript size={100} className="text-blue-500" />
+                            <BiLogoTypescript size={100} className={`text-blue-500 ${sizeIcons}`} />
                         </motion.div>
 
                         <motion.div variants={iconsVariants}>
-                            <DiHtml5 size={100} className="text-orange-500" />
+                            <DiHtml5 size={100} className={`text-orange-500 ${sizeIcons}`} />
                         </motion.div>
                     </motion.div>
                     <motion.div
-                        initial={{ x: 25, y: -60, opacity: 0 }}
+                        initial={{ x: 25, y: 'var(--y-developer)', opacity: 0 }}
                         whileInView={{ x: 0, y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ type: 'spring', delay: .5, y: { delay: 1, duration: .3 }, opacity: { duration: .5 } }}
-                        className="bungee text-7xl">{'Developer/>'}</motion.div>
+                        className="bungee text-7xl max-xl:text-6xl max-lg:text-5xl max-md:text-4xl max-sm:text-right">{'Developer/>'}</motion.div>
                 </div >
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
@@ -117,15 +127,22 @@ export default memo(function Hero() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .5, delay: 1.6 }}
                     viewport={{ once: true }}
-                    className="col-span-3 mt-10 flex gap-20">
-                    <Magnet padding={25}>
+                    className="col-span-3 mt-10 flex gap-20 max-sm:flex-col max-sm:gap-5">
+                    <div className="max-md:hidden">
+                        <Magnet padding={25}>
+                            <Button variant="shadow" size="lg">
+                                Заказать проект
+                            </Button>
+                        </Magnet>
+                    </div>
+                    <div className="max-md:block hidden">
                         <Button variant="shadow" size="lg">
                             Заказать проект
                         </Button>
-                    </Magnet>
+                    </div>
                     <Link href={'#works'}>
                         <Button
-                            className="backdrop-blur-xs border border-primary" variant="arrow" size="lg">
+                            className="max-md:w-full backdrop-blur-xs border border-primary" variant="arrow" size="lg">
                             Портфолио
                         </Button>
                     </Link>

@@ -29,9 +29,8 @@ export const ProjectItem = () => {
     return (
         <motion.div
             initial={{ opacity: 0, y: -50 }}
-            whileHover={{ opacity: 1, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: .3 }}
+            viewport={{ once: true }}
             transition={{ duration: .3 }}
             className='grid  border border-primary/50 rounded-xl'>
             <div className="">
@@ -55,9 +54,9 @@ export const ProjectItem = () => {
                         <div className=""><DiJavascript1 size={50} className='text-yellow-300' /></div>
                     </div>
                 </div>
-                <div className="flex gap-5">
-                    <Button className='mt-5 grow-1' size='lg' variant='outline'>Изучить проект</Button>
-                    <Button className='mt-5 grow-1' size='lg' variant='default'>
+                <div className="flex gap-5 mt-5  max-xl:flex-col">
+                    <Button className='grow-1' size='lg' variant='outline'>Изучить проект</Button>
+                    <Button className='grow-1' size='lg' variant='default'>
                         <CodeTag color='text-white'>
                             Github
                         </CodeTag>

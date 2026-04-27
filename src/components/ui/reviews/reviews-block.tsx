@@ -26,15 +26,31 @@ export default function ReviewsBlock() {
     return (
         <div className='pt-30'>
             <div className="container">
-                <div className="flex items-center justify-between gap-5">
-                    <Title>Отзывы моих клиентов</Title>
-                    <div className="flex gap-5 items-center">
+                <div className="flex max-sm:flex-col max-sm:items-start items-center justify-between gap-5">
+                    <Title className='text-left'>Отзывы моих клиентов</Title>
+                    <div className="flex gap-5 items-center max-sm:self-end">
                         <div className={`${arrowStyle}`} onClick={handlePrev}><ArrowLeft /></div>
                         <div className={`${arrowStyle}`} onClick={handleNext}><ArrowRight /></div>
                     </div>
                 </div>
                 <Swiper ref={refSlider}
-                    slidesPerView={4} spaceBetween={20} className='m-12.5 !py-5'>
+                    slidesPerView={4}
+                    spaceBetween={20}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1.2
+                        },
+                        768: {
+                            slidesPerView: 2.5
+                        },
+                        1023: {
+                            slidesPerView: 3.5
+                        },
+                        1200: {
+                            slidesPerView: 4
+                        },
+                    }}
+                    className='m-12.5 !py-5'>
                     {siteConfig.reviews.map((item, index) => {
                         return (
                             <SwiperSlide key={item.name + item.created_at + index} className='h-auto!'>

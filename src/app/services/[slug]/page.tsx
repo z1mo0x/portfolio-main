@@ -1,9 +1,11 @@
 import { siteConfig } from '@/config/siteConfig'
-import { ServicesPropsDetail } from '@/types/services';
 import React from 'react'
 import ServiceHero from '@/components/ui/services/detail/service-hero';
-import Title from '@/components/common/title';
 import ForWhoDetail from '@/components/ui/services/detail/for-who';
+import ServicesAdvantages from '@/components/ui/services/detail/services-adv';
+import ServicesStages from '@/components/ui/services/detail/stages';
+import ServicesResult from '@/components/ui/services/detail/result';
+import FaqBlock from '@/components/ui/faq/faq';
 
 
 export async function generateStaticParams() {
@@ -15,11 +17,12 @@ export async function generateStaticParams() {
 
 const ServiceDetail = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
-    const { slug } = await params
+    const { slug } = await params;
 
-    const current: ServicesPropsDetail | undefined = siteConfig.services.find(
+    const current = siteConfig.services.find(
         (item) => item.page_id.toString() === slug
-    )
+    );
+
 
     return (
         <div className="">
@@ -28,14 +31,15 @@ const ServiceDetail = async ({ params }: { params: Promise<{ slug: string }> }) 
                 descr={current?.descr ?? 'Описание не получено.'}
                 info={current?.info ?? []}
             />
-            <div className="container">
-                <div className="pt-20">
-                    <Title>Для кого</Title>
-                    <ForWhoDetail forWho={current?.forWho ?? []} />
-                </div>
-            </div>
+
+            {current?.forWho && <ForWhoDetail forWho={current.forWho} />}
+            {current?.benefits && <ServicesAdvantages benefits={current.benefits} />}
+            {current?.process && <ServicesStages process={current.process} />}
+            {current?.result && <ServicesResult result={current.result} />}
+            {current?.faq && <FaqBlock faq={current.faq} />}
         </div>
     )
 }
+ServiceDetail.displayName = "ServiceDetail";
 
 export default ServiceDetail

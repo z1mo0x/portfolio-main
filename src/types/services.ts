@@ -15,12 +15,24 @@ export interface ServicesProps {
 export interface ServicesPropsDetail extends ServicesProps {
     page_id: string;
     intro: string;
-    forWho: string[];
-    benefits: string[];
-    process: string[];
+    forWho: {
+        name: string,
+        text: string
+    }[];
+    benefits: {
+        name: string,
+        text: string,
+    }[];
+    process: {
+        name: string,
+        text: string,
+    }[];
     faq: {
         q: string;
         a: string;
     }[];
-    result: string[];
+    result: {
+        name: string,
+        text: string,
+    }[];
 }

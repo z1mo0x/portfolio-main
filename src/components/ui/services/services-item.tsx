@@ -16,9 +16,9 @@ export default memo(function ServicesItem({ index, title, descr, price, onCardCl
 
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: .3, delay: index ? .3 * index : .3, ease: 'linear' }}
+            // initial={{ opacity: 0 }}
+            // whileInView={{ opacity: 1 }}
+            // transition={{ duration: .3, delay: index ? .3 * index : .3, ease: 'linear' }}
             viewport={{ once: true }}
             className="service-card relative flex flex-col h-full border border-accent rounded-xl overflow-hidden">
             <div className="font-bold text-center text-xl bg-accent px-5 py-2.5">

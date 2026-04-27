@@ -13,6 +13,7 @@ export default function ReviewsItem({ name, text, created_at }: Props) {
         <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
             transition={{}}
             className='review-item relative border-accent border rounded-lg h-full'>
             <div className="absolute right-0 bottom-0 gap-5 text-xs text-primary/75 bg-primary/20 px-2 py-1 rounded-br-lg rounded-tl-xl">{created_at}</div>

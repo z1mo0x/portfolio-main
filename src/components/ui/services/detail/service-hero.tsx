@@ -19,6 +19,9 @@ const leftContainer = {
         transition: {
             staggerChildren: 0.15,
         },
+        viewport: {
+            once: true,
+        }
     },
 }
 
@@ -46,7 +49,11 @@ const rightContainer = {
             staggerChildren: 0.1,
             delayChildren: .8,
         },
-    },
+        viewport: {
+            once: true,
+        }
+
+    }
 }
 
 const rightVariants = {
@@ -90,18 +97,25 @@ const ServiceHero = memo(({ title, descr, info }: Pick<ServicesProps, "title" | 
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: .5 }}
+                        viewport={{ once: true }}
                         className="grid grid-cols-[2fr_1fr] relative z-1 h-full items-center">
-                        <motion.div className="" initial="hidden" whileInView="visible" variants={leftContainer}>
+                        <motion.div className=""
+                            viewport={{ once: true }}
+                            initial="hidden" whileInView="visible" variants={leftContainer}>
                             <motion.div
                                 variants={leftVariants}
+                                viewport={{ once: true }}
                                 className="w-max rounded-full px-4 py-2 flex gap-2 items-center bg-accent/75 border border-accent"><Code className='text-primary' />Разработка</motion.div>
-                            <motion.div
+                            <motion.h1
+                                viewport={{ once: true }}
                                 variants={leftVariants} className="text-5xl bungee mt-15">
                                 {title}
-                            </motion.div>
+                            </motion.h1>
                             <motion.div
+                                viewport={{ once: true }}
                                 variants={leftVariants} className="pr-10 mt-5 text-white/75">{descr}</motion.div>
                             <motion.div
+                                viewport={{ once: true }}
                                 variants={leftVariants} className="mt-20 flex gap-5">
                                 <Button variant='shadow'>Обсудить проект</Button>
                                 <Link href={'#stages'}>
@@ -110,11 +124,14 @@ const ServiceHero = memo(({ title, descr, info }: Pick<ServicesProps, "title" | 
                             </motion.div>
                         </motion.div>
                         <motion.div
+                            viewport={{ once: true }}
                             variants={rightContainer} initial="hidden" whileInView='visible'
                             className="h-max border border-border rounded-lg bg-[rgba(255,255,255,.025)] backdrop-blur-lg p-5 py-5 grid gap-5">
                             {info.map((item, index) => {
                                 return (
-                                    <motion.div variants={rightVariants} key={item.name + index} className="flex gap-10 items-center">
+                                    <motion.div
+                                        viewport={{ once: true }}
+                                        variants={rightVariants} key={item.name + index} className="flex gap-10 items-center">
                                         <div className="bg-primary/35 p-2 rounded-xl grid items-center justify-center"><Check /></div>
                                         <div className="">{item.name}</div>
                                     </motion.div>
@@ -123,7 +140,7 @@ const ServiceHero = memo(({ title, descr, info }: Pick<ServicesProps, "title" | 
                         </motion.div>
                     </motion.div>
                 </div>
-                <div className="absolute -bottom-[50px] h-[100px] w-full z-1 bg-rgba(255,255,255,.1) backdrop-blur-[3px]"></div>
+                <div className="absolute -bottom-[1.5px] h-[3px] w-full z-1 bg-rgba(255,255,255,.1) backdrop-blur-[100px]"></div>
             </div>
         </>
     )

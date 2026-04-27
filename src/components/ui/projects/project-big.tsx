@@ -33,14 +33,14 @@ export const ProjectBig = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: .3 }}
             transition={{ duration: .3 }}
-            className='grid grid-cols-2 gap-5'>
-            <div className="">
-                <Image className='w-max rounded-xl block mx-auto' src={project} alt='Фото' />
+            className='grid grid-cols-2 gap-5 max-lg:grid-cols-1'>
+            <div className="relative max-lg:w-full max-lg:h-max">
+                <Image className='w-max rounded-xl max-xl:object-cover block mx-auto max-lg:!static' fill src={project} alt='Фото' />
             </div>
             <div className="px-5 py-[15px] flex flex-col border border-primary/50 rounded-xl">
                 <div className="font-bold text-3xl">Сайт риэлтора</div>
                 <div className="mt-2.5 grow-1">
-                    <div className="flex gap-2.5">
+                    <div className="flex gap-2.5 flex-wrap">
                         {list.map((item) => {
                             return <div key={item.title} className='flex gap-2'>
                                 {item.icon} {item.title}
@@ -55,9 +55,9 @@ export const ProjectBig = () => {
                         <div className=""><DiJavascript1 size={50} className='text-yellow-300' /></div>
                     </div>
                 </div>
-                <div className="flex gap-5">
-                    <Button className='w-max mt-5' size='lg' variant='outline'>Изучить проект</Button>
-                    <Button className='w-max mt-5' size='lg' variant='default'>
+                <div className="mt-5 flex gap-5 max-sm:flex-col">
+                    <Button className='w-max max-sm:w-full' size='lg' variant='outline'>Изучить проект</Button>
+                    <Button className='w-max max-sm:w-full' size='lg' variant='default'>
                         <CodeTag color='text-white'>
                             Github
                         </CodeTag>

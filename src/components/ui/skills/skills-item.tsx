@@ -23,19 +23,14 @@ export default memo(function SkillItem({ index, icon, title, progress }: Props) 
              rounded-xl flex flex-col items-center 
              shadow-[0px_0px_10px] shadow-blue-500 
              inset-shadow-[0px_0px_10px] inset-shadow-blue-500
+             max-lg:flex-row max-lg:p-2.5 max-lg:gap-2 max-sm:flex-col
              '
         >
-            {/* <ElectricBorder
-                speed={.5}
-                chaos={.04}
-                style={{ borderRadius: 16 }}
-                color='#2b7fff'
-                className={"p-5 flex flex-col text-center"}> */}
-            <div className="">
+            <div className="skill-item h-[100px] shrink-0 w-[100px] max-xl:h-[50px] max-xl:w-[50px]">
                 {icon}
             </div>
             <div className="h-full w-full flex flex-col justify-end items-center">
-                <div className="bungee text-xl mt-2.5">
+                <div className="bungee text-xl mt-2.5 max-xl:text-lg max-lg:text-md">
                     {title}
                 </div>
                 <div className="overflow-hidden rounded-xl mt-2.5 h-[8px] bg-gray-700 w-full">

@@ -84,6 +84,10 @@ html {
   --sidebar-border: oklch(0.92 0.003 48);
   --sidebar-ring: oklch(0.70 0.04 48);
   --success: #059669;
+
+
+  --y-frontend: 60px;
+  --y-developer: -60px;
 }
 
 .dark {
@@ -132,7 +136,7 @@ html {
 }
 
 body {
-  padding-bottom: 300px;
+  padding-bottom: 500px;
   font-family: var(--font-main);
 }
 
@@ -266,6 +270,18 @@ body {
 .container {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.skill-item {
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .about-section {
@@ -436,5 +452,101 @@ body {
   b,
   pre {
     margin-top: 15px;
+  }
+}
+
+.elevated-swiper .swiper-wrapper {
+  padding-block: 50px;
+}
+
+.elevated-swiper .swiper-slide {
+  transition: all .3s;
+}
+
+.elevated-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.prismjs-trans-bg {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  pointer-events: none;
+}
+
+.menu-mobile {
+  display: none;
+}
+
+@media (max-width:1500px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width:992px) {
+  .menu-mobile {
+    position: fixed;
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    height: max-content;
+    background: white;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    transition: all .3s .3s;
+    padding-block: 20px;
+    border-radius: 0 0 30px 30px;
+
+    left: 0;
+    top: 100%;
+  }
+
+  .header.active {
+    .header__wrapper {
+      border-radius: 30px 30px 0 0;
+    }
+
+    .menu-mobile {
+      transform: scaleY(1);
+
+    }
+  }
+}
+
+@media (max-width:640px) {
+  .header.active {
+    .header__wrapper {
+      border-radius: unset;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --y-frontend: 48px;
+    --y-developer: -48px;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --y-frontend: 40px;
+    --y-developer: -40px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --y-frontend: 35px;
+    --y-developer: -35px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --y-frontend: 0;
+    --y-developer: -0;
   }
 }

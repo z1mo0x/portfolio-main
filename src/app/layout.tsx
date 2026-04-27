@@ -3,6 +3,7 @@ import { Bungee, Rubik } from "next/font/google";
 import "./globals.scss";
 import LenisProvider from "@/providers/lenis-provider";
 import Header from "@/components/ui/header";
+import PrismHighlighter from "@/components/common/prism-highlighter";
 
 const bungee = Bungee({
   variable: "--font-bungee",
@@ -68,8 +69,9 @@ export default function RootLayout({
         <LenisProvider>
           <Header />
           {children}
+          <PrismHighlighter />
         </LenisProvider>
       </body>
-    </html>
+    </html >
   );
 }
