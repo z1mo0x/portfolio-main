@@ -10,8 +10,10 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
         const options = {
             smoothTouch: true,
             anchors: true,
-            syncTouch: true
+            syncTouch: true,
+            touchMultiplier: 2
         };
+
 
         const lenis = new Lenis(options);
         lenisRef.current = lenis;
