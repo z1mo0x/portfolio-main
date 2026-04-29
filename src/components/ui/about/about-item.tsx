@@ -66,7 +66,6 @@ export default memo(function AboutItem({ title, index, workName, year, descr, is
                         className="font-bold m-0! cursor-default! text-2xl bg-transparent">
                         {title}
                     </GradientText>
-                    <div className="font-black text-2xl">{title}</div>
                     <div className="text-md font-thin text-gray-400">{workName}</div>
                     <div className="mt-5">
                         {descr}
@@ -104,7 +103,6 @@ export default memo(function AboutItem({ title, index, workName, year, descr, is
                     className={`font-bold m-0! cursor-default! text-2xl bg-transparent`}>
                     {title}
                 </GradientText>
-                {/* <div className="font-black text-2xl">{title}</div> */}
                 <div className="text-md font-thin text-gray-400">{workName}</div>
                 <div className="mt-5">
                     {descr}
