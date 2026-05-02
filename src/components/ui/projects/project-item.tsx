@@ -28,10 +28,10 @@ const list = [
 export const ProjectItem = () => {
     return (
         <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: .3 }}
+            viewport={{ once: true, amount: .1 }}
+            transition={{ duration: .25 }}
             className='grid  border border-primary/50 rounded-xl'>
             <div className="">
                 <Image className='w-max rounded-t-xl  block mx-auto' src={project} alt='Фото' />

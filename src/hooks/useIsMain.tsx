@@ -1,15 +1,8 @@
 'use client'
 
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react"
+import { usePathname } from 'next/navigation'
 
 export default function useIsMain() {
     const pathname = usePathname()
-    const [isMain, setIsMain] = useState<boolean>(false);
-
-    useEffect(() => {
-        setIsMain(pathname === '/')
-    }, [pathname])
-
-    return isMain;
+    return pathname === '/'
 }

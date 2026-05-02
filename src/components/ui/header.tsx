@@ -5,15 +5,10 @@ import Link from 'next/link'
 import { siteConfig } from '@/config/siteConfig'
 import CodeTag from './codeTag'
 import { motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
 import { PhoneCall } from 'lucide-react'
-import useIsMain from '@/hooks/useIsMain'
-
-
 
 export default memo(function Header() {
 
-    const isMain = useIsMain();
     const [open, setOpen] = useState<boolean>(false)
 
 
@@ -22,8 +17,8 @@ export default memo(function Header() {
         <motion.div
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: .5, delay: !isMain ? 0 : 1.5 }}
-            className={`header fixed h-[100px] px-5 pt-5 z-10 w-full
+            transition={{ duration: .25 }}
+            className={`header fixed h-[100px] px-5 will-change pt-5 z-10 w-full
             ${open ? 'active' : ''} max-sm:px-0 max-sm:pt-0`}>
             <div
                 className="header__wrapper bg-[rgba(255,255,255,.025)] backdrop-blur-xs flex h-full gap-5 justify-between items-center 

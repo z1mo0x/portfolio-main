@@ -1,7 +1,6 @@
 'use client'
 
 import React, { memo } from 'react'
-import ElectricBorder from "@/components/ElectricBorder"
 import { motion } from 'framer-motion'
 
 type Props = {
@@ -37,9 +36,10 @@ export default memo(function SkillItem({ index, icon, title, progress }: Props) 
                     <motion.div
                         initial={{ width: "0%" }}
                         whileInView={{ width: `${progress}%` }}
-                        transition={{ duration: 1, delay: .15 * index }}
+                        transition={{ duration: 1, delay: .1 * index }}
                         viewport={{ once: true }}
-                        className="bg-primary h-full"></motion.div>
+                        className="bg-primary h-full"
+                    ></motion.div>
                 </div>
             </div>
             {/* </ElectricBorder > */}

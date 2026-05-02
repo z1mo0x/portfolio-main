@@ -9,6 +9,7 @@ import Silk from '@/components/Silk'
 import Button from "./buttonMain"
 import Magnet from "@/components/Magnet"
 import Link from "next/link"
+import HeroBg from "./heroBg"
 
 const stackItems = 'flex gap-2 items-center max-sm:w-full'
 
@@ -35,19 +36,7 @@ export default memo(function Hero() {
 
     return (
         <div className="relative h-screen max-lg:overflow-hidden">
-            <AnimatePresence mode="popLayout">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: .5 }}
-                    className="absolute top left w-full h-full z-0">
-                    <Silk
-                        speed={3}
-                        color="5227ff"
-
-                    />
-                </motion.div>
-            </AnimatePresence>
+            <HeroBg />
             <div className="container flex-col flex items-center h-full justify-center relative z-1">
                 <div className="grid grid-cols-2  gap-5 items-center
                 max-sm:grid-cols-1 max-sm:w-full
