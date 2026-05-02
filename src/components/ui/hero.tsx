@@ -1,13 +1,11 @@
 'use client'
 
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { memo } from "react"
 import { BiLogoTypescript } from "react-icons/bi"
 import { DiGit, DiHtml5, DiJavascript1, DiReact } from "react-icons/di"
 import { RiCss3Line, RiNextjsLine, RiTailwindCssFill } from "react-icons/ri"
-import Silk from '@/components/Silk'
 import Button from "./buttonMain"
-import Magnet from "@/components/Magnet"
 import Link from "next/link"
 import HeroBg from "./heroBg"
 
@@ -118,11 +116,9 @@ export default memo(function Hero() {
                     viewport={{ once: true }}
                     className="col-span-3 mt-10 flex gap-20 max-sm:flex-col max-sm:gap-5">
                     <div className="max-md:hidden">
-                        <Magnet padding={25}>
-                            <Button variant="shadow" size="lg">
-                                Заказать проект
-                            </Button>
-                        </Magnet>
+                        <Button variant="shadow" size="lg">
+                            Заказать проект
+                        </Button>
                     </div>
                     <div className="max-md:block hidden">
                         <Button variant="shadow" size="lg">
