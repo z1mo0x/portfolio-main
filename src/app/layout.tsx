@@ -4,6 +4,7 @@ import "./globals.scss";
 import LenisProvider from "@/providers/lenis-provider";
 import Header from "@/components/ui/header";
 import PrismHighlighter from "@/components/common/prism-highlighter";
+import { Analytics } from "@vercel/analytics/next"
 
 const bungee = Bungee({
   variable: "--font-bungee",
@@ -70,6 +71,7 @@ export default function RootLayout({
           <Header />
           {children}
           <PrismHighlighter />
+          <Analytics />
         </LenisProvider>
       </body>
     </html >
